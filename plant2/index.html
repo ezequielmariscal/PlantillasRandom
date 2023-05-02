@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Modificar un array en HTML desde JavaScript</title>
+  </head>
+  <body>
+    <h1>Mi lista de elementos</h1>
+    <ul id="mi-lista"></ul>
+    <form>
+      <label for="nuevo-elemento">Agregar un elemento:</label>
+      <input type="text" id="nuevo-elemento" name="nuevo-elemento">
+      <button type="button" onclick="agregarElemento()">Agregar</button>
+    </form>
+    <script>
+      let miArray = ["Elemento 1", "Elemento 2", "Elemento 3"];
+
+      function actualizarLista() {
+        let listaHtml = "";
+        for (let i = 0; i < miArray.length; i++) {
+          listaHtml += "<li>" + miArray[i] + "</li>";
+        }
+        let lista = document.getElementById("mi-lista");
+        lista.innerHTML = listaHtml;
+      }
+
+      function agregarElemento() {
+        let nuevoElemento = document.getElementById("nuevo-elemento").value;
+        miArray.push(nuevoElemento);
+        actualizarLista();
+      }
+
+      actualizarLista();
+    </script>
+  </body>
+</html>
